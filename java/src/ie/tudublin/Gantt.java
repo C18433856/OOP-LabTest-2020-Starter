@@ -1,9 +1,12 @@
 package ie.tudublin;
+import java.util.ArrayList;
 
 import processing.core.PApplet;
 
 public class Gantt extends PApplet
 {	
+	ArrayList<Task> Tasks = new ArrayList<Task>();
+	
 	
 	public void settings()
 	{
@@ -31,13 +34,13 @@ public class Gantt extends PApplet
 	}
 
 	
-	
 	public void setup() 
 	{
+
 	}
 	
 	public void draw()
-	{			
-		background(0);
+	{		
+
 	}
 }
