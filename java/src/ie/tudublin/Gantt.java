@@ -38,8 +38,25 @@ public class Gantt extends PApplet
 	}
 
 	public void displayTasks()
-	{
+	{	
+		int i = 1;
+		Table task_table = loadTable("tasks.csv", "header");
+		rectMode(CENTER);
+		noStroke();
 
+		for(TableRow row:task_table.rows())
+		{	
+			int curr_start = row.getInt("Start");
+			int curr_end = row.getInt("End");
+			float mark = map(i, 1, Tasks.size(), (3 * reg_border), height - 5 * reg_border);
+			float mark2 = map(curr_start,1, 30, left_border, width - reg_border);
+			float mark3 = map(curr_end,1, 30, left_border, width - reg_border);
+
+			fill(i * 20, 200, 200);
+			rect((mark2 + mark3) / 2, mark, mark3 - mark2, 30, 6);
+			i++;
+
+		}
 	}
 
 	void displayGrid()
@@ -82,12 +99,12 @@ public class Gantt extends PApplet
 	
 	public void mousePressed()
 	{
-		println("Mouse pressed");	
+		//println("Mouse pressed");	
 	}
 
 	public void mouseDragged()
 	{
-		println("Mouse dragged");
+		//println("Mouse dragged");
 	}
 
 	
@@ -96,8 +113,11 @@ public class Gantt extends PApplet
 		background(0);
 		loadTasks();
 		printTasks();
+		textAlign(BASELINE, CENTER);
 		displayGrid();
-		colorMode(HSB);
+		colorMode(HSB, 200);
+		displayTasks();
+		
 	}
 	
 	public void draw()
