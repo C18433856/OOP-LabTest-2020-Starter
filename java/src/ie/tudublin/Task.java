@@ -49,4 +49,8 @@ public class Task
     {
         this.End = End;
     }
+
+    public String toString() {
+        return "Details: Task= " + Task + " Start= " + Start + " End= " + End;
+    }
 }
