@@ -12,6 +12,7 @@ public class Main
     public static void main(String[] arg)
     {
         Main main = new Main();
-		main.gant();        
+        main.gant();
+        
     }
 }
