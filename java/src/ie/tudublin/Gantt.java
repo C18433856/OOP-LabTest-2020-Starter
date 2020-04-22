@@ -17,7 +17,7 @@ public class Gantt extends PApplet
 
 	public void loadTasks()
 	{
-		Table task_table = loadTable("HabHYG15ly.csv", "header");
+		Table task_table = loadTable("tasks.csv", "header");
 
 		for(TableRow row:task_table.rows())
 		{
@@ -28,7 +28,10 @@ public class Gantt extends PApplet
 
 	public void printTasks()
 	{
-		
+		for(Task task:Tasks)
+		{
+			System.out.print(task.toString());
+		}
 	}
 	
 	public void mousePressed()
@@ -44,7 +47,8 @@ public class Gantt extends PApplet
 	
 	public void setup() 
 	{
-
+		loadTasks();
+		printTasks();
 	}
 	
 	public void draw()
