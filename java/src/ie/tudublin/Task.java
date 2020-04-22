@@ -51,6 +51,6 @@ public class Task
     }
 
     public String toString() {
-        return "Details: Task= " + Task + " Start= " + Start + " End= " + End + "\n";
+        return "Details: Task= " + Task + " , Start= " + Start + " , End= " + End + "\n";
     }
 }
