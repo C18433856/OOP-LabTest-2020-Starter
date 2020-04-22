@@ -42,7 +42,7 @@ public class Gantt extends PApplet
 
 	}
 
-	void DisplayGrid()
+	void displayGrid()
 	{
 		colorMode(RGB);
 		stroke(255);
@@ -69,6 +69,15 @@ public class Gantt extends PApplet
 			text(x, (mark-5), 30);			// The x coordinate is shifted a bit to the left
 		}
 		
+		Table task_table = loadTable("tasks.csv", "header");
+		int i = 1;
+
+		for(TableRow row: task_table.rows())
+		{
+			float mark = map(i, 1, Tasks.size(), (3 * reg_border), height - 5 * reg_border);
+			text(row.getString("Task"), reg_border, mark);
+			i++;
+		}
 	}
 	
 	public void mousePressed()
@@ -87,7 +96,7 @@ public class Gantt extends PApplet
 		background(0);
 		loadTasks();
 		printTasks();
-		drawGrid();
+		displayGrid();
 		colorMode(HSB);
 	}
 	
